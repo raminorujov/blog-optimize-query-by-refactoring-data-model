@@ -1,0 +1,1 @@
+# blog-optimize-query-by-refactoring-data-model
