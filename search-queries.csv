@@ -1,0 +1,11 @@
+search query name,tenant_id,name,statuses,latest,cost,avg exec time of 3 runs,scan method
+search workflows by tenant_id,yes,null,null,null,140232,1674,Index Scan using workflow_series_id_revision_unique_idx
+search latest revisions of workflows by tenant_id,yes,null,null,TRUE,124821,1498,Index Scan using workflow_series_id_revision_unique_idx
+search workflows by tenant_id and name,yes,yes,null,null,51949,174,Parallel Seq Scan on workflow
+search latest revisions of workflows by tenant_id and name,yes,yes,null,TRUE,48680,205,Parallel Seq Scan on workflow
+search workflows by tenant_id and status,yes,null,DRAFT,null,77330,318,Parallel Seq Scan on workflow
+search latest revision of workflows by tenant_id and status,yes,null,DRAFT,TRUE,71275,398,Parallel Seq Scan on workflow
+search workflows by tenant_id and multiple status,yes,null,"DRAFT, PUBLISHED",null,141119,1735,Index Scan using workflow_series_id_revision_unique_idx
+search latest revisions of workflows by tenant_id and multiple status,yes,null,"DRAFT, PUBLISHED",null,126482,1131,Index Scan using workflow_series_id_revision_unique_idx
+"search workflows by tenant_id, status and name",yes,yes,PUBLISHED,null,33857,112, Parallel Seq Scan on workflow
+"search latest revision of workflows by tenant_id, status and name",yes,yes,PUBLISHED,TRUE,36301,138, Parallel Seq Scan on workflow

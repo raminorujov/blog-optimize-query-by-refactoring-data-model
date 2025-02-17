@@ -1,0 +1,11 @@
+search query name,tenant_id,name,statuses,latest,cost,avg exec time of 3 runs,scan method
+search workflows by tenant_id,yes,null,null,null,10.55,0.48,Index Scan using workflow_v1_created_date_idx
+search latest revisions of workflows by tenant_id,yes,null,null,TRUE,11.11,28.36,Index Scan using workflow_v1_created_date_idx
+search workflows by tenant_id and name,yes,yes,null,null,53.17,2.93,Index Scan using workflow_v1_created_date_idx
+search latest revisions of workflows by tenant_id and name,yes,yes,null,TRUE,56.11,3.22,Index Scan using workflow_v1_created_date_idx
+search workflows by tenant_id and status,yes,null,DRAFT,null,26.54,6.76,Index Scan using workflow_v1_created_date_idx
+search latest revision of workflows by tenant_id and status,yes,null,DRAFT,TRUE,27.99,1.66,Index Scan using workflow_v1_created_date_idx
+search workflows by tenant_id and multiple status,yes,null,"DRAFT, PUBLISHED",null,11.34,1.08,Index Scan using workflow_series_id_revision_unique_idx
+search latest revisions of workflows by tenant_id and multiple status,yes,null,"DRAFT, PUBLISHED",null,11.95,2.95,Index Scan using workflow_series_id_revision_unique_idx
+"search workflows by tenant_id, status and name",yes,yes,PUBLISHED,null,136.46,3.02,Index Scan using workflow_series_id_revision_unique_idx
+"search latest revision of workflows by tenant_id, status and name",yes,yes,PUBLISHED,TRUE,144.03,1.67,Index Scan using workflow_series_id_revision_unique_idx
